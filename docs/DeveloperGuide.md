@@ -9,7 +9,7 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* This project would not have been possible without the help of [Ivan](https://github.com/wpinrui), and [prof Damith](https://github.com/damithc)
+This project would not have been possible without the help of [Ivan](https://github.com/wpinrui), and [prof Damith](https://github.com/damithc)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -18,12 +18,13 @@ title: Developer Guide
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W13-3/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
 ### Architecture
@@ -36,7 +37,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -69,13 +70,13 @@ The sections below give more details of each component.
 
 ### UI component
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -84,9 +85,11 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
+<div markdown="span" class="alert alert-primary">
+
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -117,8 +120,10 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div markdown="span" class="alert alert-primary">
+
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="650" />
 
@@ -137,10 +142,11 @@ The `Model` component,
 
 </div>
 
+<div markdown="span" class="alert alert-primary">
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -148,6 +154,8 @@ The `Storage` component,
 * can save both address book data and user preference data in json format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+
+<div markdown="span" class="alert alert-primary">
 
 ### Common classes
 
@@ -173,6 +181,7 @@ Given below is an example of how `SkillSet` interacts with the `Skill` class whe
 ![skillSequenceDiagram](images/SkillSequenceDiagram.png)
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -180,7 +189,7 @@ This section describes some noteworthy details on how certain features are imple
 ### Edit feature
 #### Implementation
 
-`EditCommand` is responsible for the `edit` command. `EditCommandParser` provides necessary information to `EditCommand` when creating it through parse method. The information includes `isResetMode`, `EditPersonDescriptor`, and `indices`. `indices` is the reference to the list of `index` in the displayed list in GUI, of the person(s) to be edited. `EditPersonDescriptor` encapsulates how the person(s) should be edited, such as which field(e.g. name) should be changed to what(a new name). `isResetMode` is true if the user declared `-r` to activate reset mode in command, and false otherwise.
+`EditCommand` is responsible for the `edit` command. `EditCommandParser` provides necessary information to `EditCommand` when creating it through parse method. The information includes `isResetMode`, `EditPersonDescriptor`, and `indices`. `indices` is the reference to the list of `index` in the displayed list in GUI, of the person(s) to be edited. `EditPersonDescriptor` encapsulates how the person(s) should be edited, such as which field(e.g. name) should be changed to what(a new name). `isResetMode` is true if the user declared `o/r` to activate reset mode in command, and false otherwise.
 
 ![EditCommandClassDiagram](images/EditCommandClassDiagram.png)
 
@@ -204,7 +213,7 @@ Below is a sequence diagram showing the execution path for this command
 
 By making use of the enumeration `TeamAction`, this command decides its execution path to either add or remove someone from the list of potential teammates.
 
-Similar logic required by the command after (e.g. `model#setPerson`) regardless of the path taken will hence have a single implementation, reducing the risks of have 2 out-of-sync commands.
+Similar logic required by the command after (e.g. `model#setPerson`) regardless of the path taken will hence have a single implementation, reducing the risks of having 2 out-of-sync commands.
 
 ### Filtering feature
 
@@ -217,8 +226,13 @@ This command is used to display a list of people who has the skill specified in 
 #### Execution
 
 Below is a sequence diagram showing the execution path when this command is entered.
+The execution path for this diagram only shows the creation of the `FilterSkillCommand`.
+The execution of the command is the same as all other commands (e.g. `Delete` and `Add`).
+You may refer to them if you require so.
 
 ![FilterSkillCommand](images/FilterSkillSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-primary">
 
 ### Undo/redo feature
 
@@ -286,12 +300,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 <img src="images/CommitActivityDiagram.png" width="250" />
 
 
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
-
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -355,13 +365,14 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 | B        | Users who can type fast                             | Enter commands quickly on HackNet                                     | Navigate through HackNet faster                                                       |
 | B        | Users with need to manage large number of contacts  | Manage large number of contacts effortlessly                          | Search for contacts through the use of different search options easily / add contacts |
 | B        | User who value my privacy                           | Make my contact private so others cannot share it                     | Only users that directly share contacts with me will have my contact                  |
-*{More to be added}*
+
+<div markdown="span" class="alert alert-primary">
 
 ### Use cases
 
 (For all use cases below, the **System** is `HackNet` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: UC01 - Add contact**
+<ins>**Use case: UC01 - Add contact**</ins>
 
 **MSS**
 1. User adds a contact specifying personal details and technical skills.
@@ -375,7 +386,7 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 
       Use case ends.
 
-**Use case: UC02 - View contact's portfolio**
+<ins>**Use case: UC02 - View contact's portfolio**</ins>
 
 **MSS**
 1. User <ins>adds a contact (UC01)</ins> with a specific GitHub username.
@@ -390,7 +401,7 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 
     Use case ends.
 
-**Use case: UC03 - Form potential team**
+<ins>**Use case: UC03 - Form potential team**</ins>
 
 **MSS**
 1. User requests to see list of persons with a specific technical skill.
@@ -411,15 +422,15 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 
     Use case resumes from step 2.
 
-**Use case: UC04 - See past teammates**
+<ins>**Use case: UC04 - View past teammates**</ins>
 
 **MSS**
 1. User tags specified person to a past project team.
 2. HackNet links person to the specified project team.
 3. User requests to show a list of persons tagged to his past project team.
 4. HackNet shows the list of all persons linked with a past project team.
-    
-**Use case: UC05 - Edit a person**
+
+<ins>**Use case: UC05 - Edit a person**</ins>
 
 **MSS**
 
@@ -442,7 +453,7 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 
       Use case resumes at step 3.
 
-**Use case: UC06 - Find a person by skill**
+<ins>**Use case: UC06 - Find a person by skill**</ins>
 
 **MSS**
 
@@ -467,17 +478,15 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2. Should be able to hold up to 1000 persons and respond under 3s for all user inputs.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. The program should not have functionalities sharing data with others.
-5. Raw data stored must be human-readable and easy to edit for power users to edit. (at their own risk)
+5. Raw data stored must be human-readable and easy to edit for power users. (at their own risk)
 6. Product should be able to work without internet connection.
 7. User commands must be easy to understand and use.
-8. HackNet must respond to all user inputs under 3s.
 9. HackNet must be free of charge and open sourced.
 10. HackNet must be able to run after downloading and not require installation.
 
-*{More to be added}*
 
 ### Glossary
 
@@ -487,6 +496,7 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 * **Contact**: An entry in HackNet
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
@@ -512,7 +522,6 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
 ### Deleting a person
 
@@ -529,12 +538,19 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
 
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. Delete the first line containing `{` in the data file `data/addressbook.json`.
+   2. Start the application and exit right after.
 
-1. _{ more test cases …​ }_
+    Expected: Data from data file is cleared and contains no entry.
+
+## **Appendix: Effort**
+
+1. Although the `skill` feature was built on AB3's `tag`, there was significant difficulty in implementing it as `tag` only took in 1 argument while `skill` took in 2: `skill name` and `skill proficiency` with both of different types. To add on, `tag` did not contain much interaction with the user but `skill` is used in many of HackNet's features such as `sort` and we had to maintain one unique `skill` for every person and updating it only when the `skill profiency` is different. Further abstraction was also done with the `skill` feature by implementing a `skillset` to contain all `skill`s and allow for other developers to easily interact with `skill` without knowing the implementation.
+2. There was much difficulty faced in making the `skill` in HackNet's GUI reflect different colour based on input `skill proficiency`. This is because simply changing the `.fxml` file will not work as it was not possible to obtain the `skill proficiency` values there. After tracing the code and finding where the `Label` was created, methods such as `setTextFill()` did not work too. Finally, with help from the [forum](https://github.com/nus-cs2103-AY2122S2/forum/issues/225), a fellow student suggested a fix with `setStyle()`.
+3. The sorting feature required additional work to make sure it is extensible. Firstly, the `ObservableList` serving as the display list of the application needed to support sorting. However, we could not just change the `FilteredList` into a `SortedList` as filtering still needs to be allowed. After some searching of JavaFX documentations, we managed to wrap the `FilteredList` with the `SortedList`, enabling both sorting and filtering together.
+4. It was also non-trivial to make use of CSS to implement the potential teammate highlighting box. By looking into specific properties like border-width and border-color, we experimented multiple combinations to create the highlighting to improve user experience.

@@ -5,8 +5,6 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
 ### Toh Zhan Qing
@@ -16,7 +14,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/tzhan98)][[portfolio](team/tzhan98.md)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Documentation + Skill feature
 
 ### Alex Teo
 
@@ -25,7 +23,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/alexteo98)][[portfolio](team/alexteo98.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Unit Testing and Code Coverage
 
 ### Lye Jia Yang
 
