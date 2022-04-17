@@ -85,7 +85,7 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -109,6 +109,8 @@ The Sequence Diagram below illustrates the interactions within the `Logic` compo
 
 ![Interactions Inside the Logic Component for the `add 1` Command](images/AddSequenceDiagram.png)
 
+<div style="page-break-after: always;"></div>
+
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
@@ -120,7 +122,7 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W13-3/tp/blob/master/src/main/java/seedu/address/model/Model.java)
@@ -142,7 +144,7 @@ The `Model` component,
 
 </div>
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -155,7 +157,7 @@ The `Storage` component,
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Common classes
 
@@ -232,7 +234,7 @@ You may refer to them if you require so.
 
 ![FilterSkillCommand](images/FilterSkillSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Undo/redo feature
 
@@ -366,7 +368,7 @@ Priorities: High (must have) - A, Medium (nice to have) - B, Low (unlikely to ha
 | B        | Users with need to manage large number of contacts  | Manage large number of contacts effortlessly                          | Search for contacts through the use of different search options easily / add contacts |
 | B        | User who value my privacy                           | Make my contact private so others cannot share it                     | Only users that directly share contacts with me will have my contact                  |
 
-<div markdown="span" class="alert alert-primary">
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
@@ -548,9 +550,12 @@ testers are expected to do more *exploratory* testing.
 
     Expected: Data from data file is cleared and contains no entry.
 
+<div style="page-break-after: always;"></div>
+
 ## **Appendix: Effort**
 
 1. Although the `skill` feature was built on AB3's `tag`, there was significant difficulty in implementing it as `tag` only took in 1 argument while `skill` took in 2: `skill name` and `skill proficiency` with both of different types. To add on, `tag` did not contain much interaction with the user but `skill` is used in many of HackNet's features such as `sort` and we had to maintain one unique `skill` for every person and updating it only when the `skill profiency` is different. Further abstraction was also done with the `skill` feature by implementing a `skillset` to contain all `skill`s and allow for other developers to easily interact with `skill` without knowing the implementation.
 2. There was much difficulty faced in making the `skill` in HackNet's GUI reflect different colour based on input `skill proficiency`. This is because simply changing the `.fxml` file will not work as it was not possible to obtain the `skill proficiency` values there. After tracing the code and finding where the `Label` was created, methods such as `setTextFill()` did not work too. Finally, with help from the [forum](https://github.com/nus-cs2103-AY2122S2/forum/issues/225), a fellow student suggested a fix with `setStyle()`.
 3. The sorting feature required additional work to make sure it is extensible. Firstly, the `ObservableList` serving as the display list of the application needed to support sorting. However, we could not just change the `FilteredList` into a `SortedList` as filtering still needs to be allowed. After some searching of JavaFX documentations, we managed to wrap the `FilteredList` with the `SortedList`, enabling both sorting and filtering together.
-4. It was also non-trivial to make use of CSS to implement the potential teammate highlighting box. By looking into specific properties like border-width and border-color, we experimented multiple combinations to create the highlighting to improve user experience.
+4. It was non-trivial to make use of CSS to implement the potential teammate highlighting box. By looking into specific properties like border-width and border-color, we experimented multiple combinations to create the highlighting to improve user experience.
+5. Implementing batch edit was moderately difficult. The job included developing `EditCommandParser` class to detect and understand multiple indices, and to execute batch edit only when there are multiple indices provided. However, expanding the corresponding test cases for `edit` was difficult due to the increasing complexity of `edit` command after batch edit was introduced, as it was responsible for both single and batch edit.
